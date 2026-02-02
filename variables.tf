@@ -12,10 +12,10 @@ variable "context_name" {
 variable "bandwidth" {
   type        = number
   default     = 100
-  description = "The EIP bandwidth size. The value for a public loadbalancer ranges from 1 to 1000 Mbit/s. 0 disables the EIP, making the loadbalancer private."
+  description = "The EIP bandwidth size. The value for a public loadbalancer ranges from 1 to 1000 (Mbit/s). 0 disables the EIP, making the loadbalancer private."
 }
 
 variable "subnet_id" {
   type        = string
-  description = "Subnet where the elastic load balancer will be created. "
+  description = "Subnet where the elastic load balancer will be created."
 }
