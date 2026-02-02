@@ -5,6 +5,7 @@ resource "opentelekomcloud_lb_loadbalancer_v2" "elb" {
 }
 
 resource "opentelekomcloud_vpc_eip_v1" "ingress_eip" {
+  count = var.bandwidth == 0 ? 0 : 1
   bandwidth {
     charge_mode = "traffic"
     name        = "${var.stage_name}-${var.context_name}-ingress-bandwidth"
@@ -15,16 +16,4 @@ resource "opentelekomcloud_vpc_eip_v1" "ingress_eip" {
     type    = "5_bgp"
     port_id = opentelekomcloud_lb_loadbalancer_v2.elb.vip_port_id
   }
-}
-
-output "elb_id" {
-  value = opentelekomcloud_lb_loadbalancer_v2.elb.id
-}
-
-output "elb_private_ip" {
-  value = opentelekomcloud_lb_loadbalancer_v2.elb.vip_address
-}
-
-output "elb_public_ip" {
-  value = opentelekomcloud_vpc_eip_v1.ingress_eip.publicip[0].ip_address
 }
