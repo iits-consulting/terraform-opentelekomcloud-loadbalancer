@@ -55,7 +55,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_context_name"></a> [context\_name](#input\_context\_name) | Short descriptive, readable label of the project you are working on. Is utilized as a part of resource names. | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet where the elastic load balancer will be created. | `string` | n/a | yes |
-| <a name="input_bandwidth"></a> [bandwidth](#input\_bandwidth) | The bandwidth size. The value ranges from 1 to 1000 Mbit/s. | `number` | `300` | no |
+| <a name="input_bandwidth"></a> [bandwidth](#input\_bandwidth) | The EIP bandwidth size. The value for a public loadbalancer ranges from 1 to 1000 Mbit/s. 0 disables the EIP, making the loadbalancer private. | `number` | `100` | no |
 | <a name="input_stage_name"></a> [stage\_name](#input\_stage\_name) | Utilized to distinguish separate, but mostly equal environments within the same project. Usually dev, test, qa, prod. | `string` | `"dev"` | no |
 
 ## Outputs
